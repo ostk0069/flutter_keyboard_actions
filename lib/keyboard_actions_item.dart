@@ -28,7 +28,8 @@ class KeyboardActionsItem {
   /// true [default] to display the action bar
   final bool displayActionBar;
 
-  /// false [default] if true, avoid fancy keyboard animation
+  /// false [default] if true, not using native keyboards
+  /// this is useful for avoid strange position animation
   /// seeAlso: https://github.com/diegoveloper/flutter_keyboard_actions/issues/203
   final bool customKeyboard;
 
