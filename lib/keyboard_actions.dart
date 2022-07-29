@@ -344,8 +344,7 @@ class KeyboardActionstate extends State<KeyboardActions>
             if (_currentAction!.displayActionBar)
               _buildBar(_currentAction!.displayArrows),
             if (_currentFooter != null)
-              AnimatedContainer(
-                duration: _timeToDismiss,
+              SizedBox(
                 child: _currentFooter,
                 height: _inserted ? _currentFooter!.preferredSize.height : 0,
               ),
