@@ -51,7 +51,7 @@ class _ContentState extends State<Content> {
           focusNode: _nodeText1,
         ),
         KeyboardActionsItem(focusNode: _nodeText2, toolbarButtons: [
-          (node) {
+              (node) {
             return GestureDetector(
               onTap: () => node.unfocus(),
               child: Padding(
@@ -87,7 +87,7 @@ class _ContentState extends State<Content> {
           focusNode: _nodeText5,
           toolbarButtons: [
             //button 1
-            (node) {
+                (node) {
               return GestureDetector(
                 onTap: () => node.unfocus(),
                 child: Container(
@@ -101,7 +101,7 @@ class _ContentState extends State<Content> {
               );
             },
             //button 2
-            (node) {
+                (node) {
               return GestureDetector(
                 onTap: () => node.unfocus(),
                 child: Container(
@@ -139,12 +139,14 @@ class _ContentState extends State<Content> {
         ),
         KeyboardActionsItem(
           focusNode: _nodeText8,
+          customKeyboard: true,
           footerBuilder: (_) => CounterKeyboard(
             notifier: custom1Notifier,
           ),
         ),
         KeyboardActionsItem(
           focusNode: _nodeText9,
+          customKeyboard: true,
           footerBuilder: (_) => ColorPickerKeyboard(
             notifier: custom2Notifier,
           ),
@@ -152,6 +154,7 @@ class _ContentState extends State<Content> {
         KeyboardActionsItem(
           focusNode: _nodeText10,
           displayActionBar: false,
+          customKeyboard: true,
           footerBuilder: (_) => NumericKeyboard(
             focusNode: _nodeText10,
             notifier: custom3Notifier,
@@ -233,7 +236,7 @@ class _ContentState extends State<Content> {
                     child: Text(
                       val,
                       style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                     ),
                   );
                 },
@@ -259,7 +262,7 @@ class _ContentState extends State<Content> {
                     child: Text(
                       val.isEmpty ? "Tap Here" : val,
                       style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                      TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
                     ),
                   );
                 },

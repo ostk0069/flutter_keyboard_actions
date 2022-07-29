@@ -28,6 +28,10 @@ class KeyboardActionsItem {
   /// true [default] to display the action bar
   final bool displayActionBar;
 
+  /// false [default] if true, avoid fancy keyboard animation
+  /// seeAlso: https://github.com/diegoveloper/flutter_keyboard_actions/issues/203
+  final bool customKeyboard;
+
   /// Builder for an optional widget to show below the action bar.
   ///
   /// Consider using for field validation or as a replacement for a system keyboard.
@@ -50,5 +54,6 @@ class KeyboardActionsItem {
     this.displayDoneButton = true,
     this.footerBuilder,
     this.toolbarAlignment = MainAxisAlignment.end,
+    this.customKeyboard = false,
   });
 }
