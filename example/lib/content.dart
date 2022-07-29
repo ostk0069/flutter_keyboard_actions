@@ -51,7 +51,7 @@ class _ContentState extends State<Content> {
           focusNode: _nodeText1,
         ),
         KeyboardActionsItem(focusNode: _nodeText2, toolbarButtons: [
-              (node) {
+          (node) {
             return GestureDetector(
               onTap: () => node.unfocus(),
               child: Padding(
@@ -87,7 +87,7 @@ class _ContentState extends State<Content> {
           focusNode: _nodeText5,
           toolbarButtons: [
             //button 1
-                (node) {
+            (node) {
               return GestureDetector(
                 onTap: () => node.unfocus(),
                 child: Container(
@@ -101,7 +101,7 @@ class _ContentState extends State<Content> {
               );
             },
             //button 2
-                (node) {
+            (node) {
               return GestureDetector(
                 onTap: () => node.unfocus(),
                 child: Container(
@@ -236,7 +236,7 @@ class _ContentState extends State<Content> {
                     child: Text(
                       val,
                       style:
-                      TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                     ),
                   );
                 },
@@ -262,7 +262,7 @@ class _ContentState extends State<Content> {
                     child: Text(
                       val.isEmpty ? "Tap Here" : val,
                       style:
-                      TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
                     ),
                   );
                 },
