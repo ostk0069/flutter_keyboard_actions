@@ -335,50 +335,9 @@ class KeyboardActionstate extends State<KeyboardActions>
           ? _currentAction!.footerBuilder!(context)
           : null;
 
-      final child = Material(
-        color: config!.keyboardBarColor ?? Colors.grey[200],
-        elevation: config!.keyboardBarElevation ?? 20,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            if (_currentAction!.displayActionBar)
-              _buildBar(_currentAction!.displayArrows),
-            if (_currentFooter != null)
-              SizedBox(
-                child: _currentFooter,
-                height: _inserted ? _currentFooter!.preferredSize.height : 0,
-              ),
-          ],
-        ),
-      );
-
       final queryData = MediaQuery.of(context);
 
-      return _currentAction?.customKeyboard ?? false
-          ? Positioned.fill(
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Listener(
-                      onPointerDown: (event) {
-                        if (!widget.keepFocusOnTappingNode ||
-                            _currentAction?.focusNode.rect
-                                    .contains(event.position) !=
-                                true) {
-                          _clearFocus();
-                        }
-                      },
-                      behavior: widget.tapOutsideBehavior ==
-                              TapOutsideBehavior.translucentDismiss
-                          ? HitTestBehavior.translucent
-                          : HitTestBehavior.opaque,
-                    ),
-                  ),
-                  child,
-                ],
-              ),
-            )
-          : Stack(
+      return Stack(
               children: [
                 if (widget.tapOutsideBehavior != TapOutsideBehavior.none ||
                     // ignore: deprecated_member_use_from_same_package
@@ -402,8 +361,23 @@ class KeyboardActionstate extends State<KeyboardActions>
                 Positioned(
                   left: 0,
                   right: 0,
-                  bottom: queryData.viewInsets.bottom,
-                  child: child,
+                  bottom: _currentAction?.customKeyboard ?? false ? 0 : queryData.viewInsets.bottom,
+                  child: Material(
+                    color: config!.keyboardBarColor ?? Colors.grey[200],
+                    elevation: config!.keyboardBarElevation ?? 20,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        if (_currentAction!.displayActionBar)
+                          _buildBar(_currentAction!.displayArrows),
+                        if (_currentFooter != null)
+                          SizedBox(
+                            child: _currentFooter,
+                            height: _inserted ? _currentFooter!.preferredSize.height : 0,
+                          ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             );
